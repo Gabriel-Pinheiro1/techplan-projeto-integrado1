@@ -1,4 +1,9 @@
 <?php
+    session_start();
+    if ((!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) && (!isset($_SESSION['senha']) || empty($_SESSION['senha']))){
+        header('Location: login.php');
+        exit;
+    }
     require 'conexao.php';
     $sql = $conexao->prepare("SELECT * FROM tb_modelos");
     $sql->execute();
@@ -45,5 +50,5 @@
     
 
 
-
+    echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
 ?>

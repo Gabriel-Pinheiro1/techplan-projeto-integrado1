@@ -4,14 +4,26 @@
  --------------------------------------------
 ATENÇÃO
  --------------------------------------------
+ Para conseguir rodar esse projeto em seu computador será necessário baixar o XAMMP : https://www.apachefriends.org/pt_br/index.html
  
-Este é um protótipo incial do projeto. Aqui fizemos um teste utilizando o PHP e a APi do google sheets para manipular informações de uma planilha google.
+ Após isso, coloque o repositório baixado na pasta "htdpcs", dentro da pasta "xammp".
  
-link da planilha:  https://docs.google.com/spreadsheets/d/1BgckVPL6TiNEGlw5veKChsLwwNF9_nND8X8W13HLx1c/edit#gid=0
+ Em seguida abra o aplicativo e clique em "start" nas opções Apache e MySQL e clique na opção "admin" em mysql.
  
+ Após isso, no PHPMyadmin, crie um banco de dados com o nome "inventario_labs" e importe o arquivo .sql nesse banco.
+ 
+ Por fim, vá no seu navegador e coloque o link "http://localhost/techplan-projeto-integrado1/inventario_labs/index.php"
+ 
+ 
+ --------------------------------------------
 DESCRIÇÃO
+ --------------------------------------------
  
-Esse é um projeto da equipe TechPlan juntamente com o suporte técnico do curso de Sistemas e Mídias Digitais. O intuito do projeto é criar um site, onde seja possível acessar as informações da planilha de inventário dos laboratórios do bloco, por exemplo, acessar a quantidade de computadores que estão em cada laboratório, o modelo de cada computador e seu nível de potência (baixa, média e alta). Além disso, o site também vai conter um "help desk", para que os alunos possam reportar qualquer problema que ocorra em computadores do laboratório diretamente ao suporte técnico por meio do próprio site. Também ficará exposto no site as regras de uso dos laboratórios de forma clara, já que foi uma exigência do MEC esse ano.
+Esse é um projeto da equipe TechPlan juntamente com o suporte técnico do curso de Sistemas e Mídias Digitais. O intuito do projeto é criar um site, onde seja possível visualizar e modificar o inventário de hardware e software dos laboratórios do bloco, por exemplo visualizar e modificar número de máquinas em cada laboratório, modelo de máquinas, potência das máquinas presente nos laboratórios, softwares disponíveis em cada laboratório e etc.
 
-Vale ressaltar que o acesso ao site será feito tanto de forma direta pelo link, mas também será feito por QR codes presentes nas portas dos laboratórios.
+Além disso o site também contará com um Help Desk para que os usuários possam reportar quaisquer problemas que ocorrerem com os laboratórios
+ 
+ 
+
+
 

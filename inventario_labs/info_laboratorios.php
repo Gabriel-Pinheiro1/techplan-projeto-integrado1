@@ -11,32 +11,56 @@
         $dados = $sql->fetchAll();  
         echo "<h1> Olá você está no laboratório".$id_lab."</h1>";
         echo "<h2> Quantidade de máquinas: ".$total."</h2>";
-        foreach ($dados as $key => $value) {
-            if($dados[$key]['lab'.$id_lab] != 0){
+        
+            // verifica se o usuário está logado no perfil de amd
+            if(isset($_GET['perf']) && !empty($_GET['perf']) && $_GET['perf'] = 'adm'){
+                session_start();                
+
+                    if ((!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) && (!isset($_SESSION['senha']) || empty($_SESSION['senha']))){
+                        header('Location: login.php');
+                        exit;
+                    } else {
+                        foreach ($dados as $key => $value) {
+                            if($dados[$key]['lab'.$id_lab] != 0){
+                        
+                                echo 'Modelo: '.$dados[$key]['modelo']." / ";
+                                echo 'Quantidade: '.$dados[$key]['lab'.$id_lab];
+                                echo '<a href = "info_laboratorios.php?perf=adm&lab='.$id_lab.'&add='.$dados[$key]['id'].'"><button type="submit">+</button></a>';
+                                echo '<a href = "info_laboratorios.php?perf=adm&lab='.$id_lab.'&del='.$dados[$key]['id'].'"><button type="submit">-</button></a>';
+                               echo '<br>';
+                            }            
+                        }  echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
+                        
+                    }
+        
+            } else {
+                foreach ($dados as $key => $value) {
                 
-                echo 'Modelo: '.$dados[$key]['modelo']." / ";
-                echo 'Quantidade: '.$dados[$key]['lab'.$id_lab];
-                echo '<a href = "info_laboratorios.php?lab='.$id_lab.'&add='.$dados[$key]['id'].'"><button type="submit">+</button></a>';
-                echo '<a href = "info_laboratorios.php?lab='.$id_lab.'&del='.$dados[$key]['id'].'"><button type="submit">-</button></a>';
-                
-                echo '<br>';
-            }            
-        } 
+                    if($dados[$key]['lab'.$id_lab] != 0){
+                           
+                           echo 'Modelo: '.$dados[$key]['modelo']." / ";
+                           echo 'Quantidade: '.$dados[$key]['lab'.$id_lab];
+                           echo '<br>';
+                       }
+                                   
+               } 
+               echo '<a href="index.php"><button>voltar ao ínicio</button></a>';
+            }
+        
+           
         
     }
     if(isset($_GET['add']) && !empty($_GET['add'])){
         $id_add = $_GET['add'];
         $sql = $conexao->prepare("UPDATE tb_modelos SET lab".$id_lab."=lab".$id_lab."+1 WHERE id =".$id_add);
-        //echo "lab".$id_lab."=lab".$id_lab."-1 WHERE id =".$id_add;
         $sql->execute();
-        header("location:info_laboratorios.php?lab=".$id_lab);               
+        header("location:info_laboratorios.php?perf=adm&lab=".$id_lab);               
     } 
     if(isset($_GET['del']) && !empty($_GET['del'])){
         $id_add = $_GET['del'];
         $sql = $conexao->prepare("UPDATE tb_modelos SET lab".$id_lab."=lab".$id_lab."-1 WHERE id =".$id_add);
-        //echo "lab".$id_lab."=lab".$id_lab."-1 WHERE id =".$id_add;
         $sql->execute();
-        header("location:info_laboratorios.php?lab=".$id_lab);               
+        header("location:info_laboratorios.php?perf=adm&lab=".$id_lab);               
     }           
 
     
@@ -53,6 +77,5 @@
     <title>Document</title>
 </head>
 <body>
-   
 </body>
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 11-Maio-2023 às 02:31
+-- Tempo de geração: 12-Maio-2023 às 02:35
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -44,6 +44,32 @@ INSERT INTO `tb_cadastro` (`id`, `email`, `senha`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estrutura da tabela `tb_comp`
+--
+
+CREATE TABLE `tb_comp` (
+  `id_comp` int(11) NOT NULL,
+  `posicao` varchar(20) DEFAULT NULL,
+  `fila` varchar(10) DEFAULT NULL,
+  `patrimonio` varchar(100) DEFAULT NULL,
+  `modelo` varchar(100) DEFAULT NULL,
+  `ip` varchar(50) DEFAULT NULL,
+  `mesa_patrimonio` varchar(100) DEFAULT NULL,
+  `lab` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_comp`
+--
+
+INSERT INTO `tb_comp` (`id_comp`, `posicao`, `fila`, `patrimonio`, `modelo`, `ip`, `mesa_patrimonio`, `lab`) VALUES
+(1, '212', '1', '12323', 'imac', '227.12', '12223', 1),
+(2, '212', '0', '12323', 'imac', '227.12', '12223', 1),
+(3, '312', '1', '12323', 'imac', '227.12', '12223', 3);
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura da tabela `tb_modelos`
 --
 
@@ -65,7 +91,8 @@ CREATE TABLE `tb_modelos` (
 INSERT INTO `tb_modelos` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, `lab6`, `id`) VALUES
 ('imac', 28, 20, 0, 0, 18, 87, 1),
 ('lenovo', 0, 25, 0, 34, 0, 0, 2),
-('dell', 13, 91, 0, 24, 0, 0, 3);
+('dell', 13, 91, 0, 24, 0, 0, 3),
+('sansung', 0, 0, 0, 0, 0, 0, 7);
 
 -- --------------------------------------------------------
 
@@ -104,6 +131,12 @@ ALTER TABLE `tb_cadastro`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Índices para tabela `tb_comp`
+--
+ALTER TABLE `tb_comp`
+  ADD PRIMARY KEY (`id_comp`);
+
+--
 -- Índices para tabela `tb_modelos`
 --
 ALTER TABLE `tb_modelos`
@@ -126,10 +159,16 @@ ALTER TABLE `tb_cadastro`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT de tabela `tb_comp`
+--
+ALTER TABLE `tb_comp`
+  MODIFY `id_comp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT de tabela `tb_modelos`
 --
 ALTER TABLE `tb_modelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de tabela `tb_modelos-bkp`

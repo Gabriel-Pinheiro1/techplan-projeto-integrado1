@@ -1,9 +1,5 @@
 <?php
-    session_start();
-    if ((!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) && (!isset($_SESSION['senha']) || empty($_SESSION['senha']))){
-        header('Location: login.php');
-        exit;
-    }
+    require 'login_seguranca.php';
     require 'conexao.php';
     $sql = $conexao->prepare("SELECT * FROM tb_modelos");
     $sql->execute();
@@ -60,5 +56,6 @@
 </head>
 <body>
     <a href="tabela_comp.php"><button>Tabela de computadores</button></a>
+    <a href="tabela_modelos.php"><button>Tabela de modelos</button></a>
 </body>
 </html>

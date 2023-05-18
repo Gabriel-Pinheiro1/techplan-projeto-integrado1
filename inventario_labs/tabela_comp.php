@@ -1,11 +1,6 @@
 <?php
 require 'conexao.php';
-session_start();
-//verificando se é um perfil de admnistrador ou não.
-if ((!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) && (!isset($_SESSION['senha']) || empty($_SESSION['senha']))){
-    header('Location: login.php');
-    exit;
-}
+require 'login_seguranca.php';
 if(isset($_GET['lab'])){
 $id_lab = $_GET['lab'];
 $sql = $conexao->prepare("SELECT * FROM tb_comp  WHERE lab =".$id_lab);
@@ -38,6 +33,7 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
     <a href="tabela_comp.php?lab=5"><button>lab 5</button></a>
     <a href="tabela_comp.php?lab=6"><button>lab 6</button></a>
     <a href="tabela_comp.php?lab=7"><button>lab P&D</button></a>
+    <a href="modificar_inventario.php"><button>Voltar</button></a>;
     <?php } else{ ?>
     <h1>Laboratório <?php echo $_GET['lab'] < 7 ? $_GET['lab'] : 'P&D'?></h1>
     <table class="tabela">
@@ -66,6 +62,7 @@ $dados = $sql->fetchAll(PDO::FETCH_ASSOC);
     </table>
     <a href="tabela_comp.php"><button>Voltar</button></a>
     <a href="cadastro_comp.php?lab=<?php echo $id_lab;?>"><button>Cadastrar Computador</button></a>
+    
     <?php } ?>
     
 </body>

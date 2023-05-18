@@ -1,11 +1,6 @@
 <?php
 require 'conexao.php';
-session_start();
-//verificando se é um perfil de admnistrador ou não.
-if ((!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) && (!isset($_SESSION['senha']) || empty($_SESSION['senha']))){
-    header('Location: login.php');
-    exit;
-}
+require 'login_seguranca.php';
 // Verifico se o formulariop foi preenchido e enviado por "post". Então executo o script a seguir
 if(isset($_POST) && !empty($_POST)){
     $id_comp = $_GET['id'];

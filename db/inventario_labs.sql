@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 12-Maio-2023 às 02:35
+-- Tempo de geração: 18-Maio-2023 às 23:29
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -63,9 +63,42 @@ CREATE TABLE `tb_comp` (
 --
 
 INSERT INTO `tb_comp` (`id_comp`, `posicao`, `fila`, `patrimonio`, `modelo`, `ip`, `mesa_patrimonio`, `lab`) VALUES
-(1, '212', '1', '12323', 'imac', '227.12', '12223', 1),
+(1, '212', '1', '12324', 'dell', '227.12', '12223', 1),
 (2, '212', '0', '12323', 'imac', '227.12', '12223', 1),
 (3, '312', '1', '12323', 'imac', '227.12', '12223', 3);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tb_info_modelos`
+--
+
+CREATE TABLE `tb_info_modelos` (
+  `fabricante` varchar(30) NOT NULL,
+  `modelo` varchar(150) NOT NULL,
+  `processador` varchar(150) NOT NULL,
+  `cpu_mark` varchar(20) NOT NULL,
+  `mem_capacidade` varchar(10) NOT NULL,
+  `mem_tipo` varchar(50) NOT NULL,
+  `disco1_capacidade` varchar(20) NOT NULL,
+  `disco1_tipo` varchar(20) NOT NULL,
+  `disco1_modelo` varchar(50) NOT NULL,
+  `disco2_capacidade` varchar(20) NOT NULL,
+  `disco2_tipo` varchar(20) NOT NULL,
+  `disco2_modelo` varchar(50) NOT NULL,
+  `so_nome` varchar(50) NOT NULL,
+  `so_compilacao` varchar(50) NOT NULL,
+  `id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `tb_info_modelos`
+--
+
+INSERT INTO `tb_info_modelos` (`fabricante`, `modelo`, `processador`, `cpu_mark`, `mem_capacidade`, `mem_tipo`, `disco1_capacidade`, `disco1_tipo`, `disco1_modelo`, `disco2_capacidade`, `disco2_tipo`, `disco2_modelo`, `so_nome`, `so_compilacao`, `id`) VALUES
+('aaaaaa', 'cc', 'aa', 'aa', 'aa', 'aa', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 1),
+('aa', 'aa', 'aa', 'aa', 'aa', 'aa', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 'a', 2),
+('bb', 'bb', 'bb', 'bb', 'bb', 'bb', 'bb', '', 'b', 'b', 'b', 'b', 'b', 'bb', 3);
 
 -- --------------------------------------------------------
 
@@ -91,7 +124,6 @@ CREATE TABLE `tb_modelos` (
 INSERT INTO `tb_modelos` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, `lab6`, `id`) VALUES
 ('imac', 28, 20, 0, 0, 18, 87, 1),
 ('lenovo', 0, 25, 0, 34, 0, 0, 2),
-('dell', 13, 91, 0, 24, 0, 0, 3),
 ('sansung', 0, 0, 0, 0, 0, 0, 7);
 
 -- --------------------------------------------------------
@@ -137,6 +169,12 @@ ALTER TABLE `tb_comp`
   ADD PRIMARY KEY (`id_comp`);
 
 --
+-- Índices para tabela `tb_info_modelos`
+--
+ALTER TABLE `tb_info_modelos`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `tb_modelos`
 --
 ALTER TABLE `tb_modelos`
@@ -165,10 +203,16 @@ ALTER TABLE `tb_comp`
   MODIFY `id_comp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
+-- AUTO_INCREMENT de tabela `tb_info_modelos`
+--
+ALTER TABLE `tb_info_modelos`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de tabela `tb_modelos`
 --
 ALTER TABLE `tb_modelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `tb_modelos-bkp`

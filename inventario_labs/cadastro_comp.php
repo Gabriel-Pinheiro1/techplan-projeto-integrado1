@@ -1,10 +1,6 @@
 <?php
 require 'conexao.php';
-session_start();
-if ((!isset($_SESSION['usuario']) || empty($_SESSION['usuario'])) && (!isset($_SESSION['senha']) || empty($_SESSION['senha']))){
-    header('Location: login.php');
-    exit;
-}
+require 'login_seguranca.php';
 if(isset($_GET['lab']) && !empty($_GET['lab'])){
     if(isset($_POST['posicao']) && !empty($_POST['posicao'])){
         $posicao = $_POST[ 'posicao'];

@@ -1,5 +1,40 @@
 body{
     text-align: center;
+
+    gap: 10px;
+
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+section{
     
+    border-style: solid;
+    border-color: black;
+    border: 20px;  
+    
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center; 
+}
+article{
+    border-style: solid;
+    border-color: black;
+    border: 2px;
+    width: 60%;
+
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    gap: 5px;
+}
+
+table{
+    width: 60%;
 }
 

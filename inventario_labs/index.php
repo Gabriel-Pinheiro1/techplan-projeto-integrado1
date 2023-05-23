@@ -41,7 +41,9 @@
     <a href="modificar_inventario.php"><button> modificar </button></a>
     <a href="logout.php"><button>Sair da conta</button></a>
 
-    <?php } else {  ?>
+    <?php 
+        } else {  
+    ?>
     
     <h1> Bem vindo ao Inventário do SMD!</h1>   
     
@@ -59,20 +61,26 @@
         <a href="login.php"><button>login</button></a>
     </section>
 
-    <?php };?>
+    <?php 
+        };
+    ?>
     <br><hr>
     
     <?php
     
-        // include('conexao.php');
-
-        // $pesquisa = $_GET['busca']; 
-        // $sql_code = "SELECT * from tb_modelos WHERE modelo LIKE '%$pesquisa%' ";
-
+        include('conexao.php');
+        if(isset($_GET['busca']) && !empty($_GET['busca'])){
+            $pesquisa = $_GET['busca']; 
+            $sql_code = $conexao->prepare("SELECT * 
+                from tb_modelos 
+                WHERE modelo LIKE '%$pesquisa%'");
+            $sql_code->execute();
+            $resultado = $sql_code->fetchAll(PDO::FETCH_ASSOC);
+        }
     ?>
 
-    <form action="">
-        <input type="search" name="busca" placeholder="Pesquisar modelo">
+    <form method="GET" action="">
+        <input type="text" name="busca" placeholder="Pesquisar modelo">
         <button type="submit">Buscar</button>
     </form>    
     
@@ -86,6 +94,24 @@
             <th>Lab5</th>
             <th>Lab6</th>
         </tr>
+        <tr>
+        <?php 
+        if(isset($_GET['busca']) && !empty($_GET['busca'])){         
+            foreach ($resultado as $resultado){
+                echo ' <tr> 
+                            <td>'.$resultado['modelo'].'</td>
+                            <td>'.$resultado['lab1'].'</td>
+                            <td>'.$resultado['lab2'].'</td>
+                            <td>'.$resultado['lab3'].'</td>
+                            <td>'.$resultado['lab4'].'</td>
+                            <td>'.$resultado['lab5'].'</td>
+                            <td>'.$resultado['lab6'].'</td>
+                        </tr>';            
+            }  
+        }  
+        ?>
+        </tr>
+        
         <tr>
             <td colspan ="7">O resultado da pesquisa vem aqui</td>
         </tr>

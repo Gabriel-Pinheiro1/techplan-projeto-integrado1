@@ -152,9 +152,17 @@ INSERT INTO `tb_modelos-bkp` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, 
 ('lenovo', 0, 25, 0, 34, 0, 0, 2),
 ('dell', 14, 91, 0, 23, 0, 0, 3);
 
---
--- Índices para tabelas despejadas
---
+-- --------------------------------------------------------
+
+-- --
+-- -- Estrutura da tabela `tabela_softwares`
+-- --
+
+-- CREATE TABLE `tabela_softwares`
+
+-- --
+-- -- Índices para tabelas despejadas
+-- --
 
 --
 -- Índices para tabela `tb_cadastro`

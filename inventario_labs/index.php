@@ -105,13 +105,13 @@
         <?php                
             foreach ($resultado as $resultado){
                 echo ' <tr> 
-                            <td>'.$resultado['modelo'].'</td>
-                            <td>'.$resultado['lab1'].'</td>
-                            <td>'.$resultado['lab2'].'</td>
-                            <td>'.$resultado['lab3'].'</td>
-                            <td>'.$resultado['lab4'].'</td>
-                            <td>'.$resultado['lab5'].'</td>
-                            <td>'.$resultado['lab6'].'</td>
+                            <td><a href="tabela_modelos.php">'.$resultado['modelo'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=1">'.$resultado['lab1'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=2">'.$resultado['lab2'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=3">'.$resultado['lab3'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=4">'.$resultado['lab4'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=5">'.$resultado['lab5'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=6">'.$resultado['lab6'].'</a></td>
                         </tr>';            
             }  
          

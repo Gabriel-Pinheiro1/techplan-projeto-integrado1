@@ -1,13 +1,13 @@
 
 <?php
-    // require 'conexao.php';
+    require 'conexao.php';
     
-    // if(isset($_POST['modelo'])){
-    //     $sql = $conexao->prepare("INSERT INTO tb_modelos VALUES(?,?,?,?,?,?,?,?)");
-    //     $sql->execute(array($_POST['modelo'],$_POST['lab1'],$_POST['lab2'],$_POST['lab3'],$_POST['lab4'],$_POST['lab5'],$_POST['lab6'],''));
-    //     echo 'Modelo inserido com sucesso';
-    //     header("location:modificar_inventario.php");
-    // }
+    if(isset($_POST['modelo'])){
+        $sql = $conexao->prepare("INSERT INTO tb_modelos VALUES(?,?,?,?,?,?,?,?)");
+        $sql->execute(array($_POST['modelo'],$_POST['lab1'],$_POST['lab2'],$_POST['lab3'],$_POST['lab4'],$_POST['lab5'],$_POST['lab6'],''));
+        echo 'Modelo inserido com sucesso';
+        header("location:modificar_inventario.php");
+    }
     
 ?>
 
@@ -31,16 +31,22 @@
     ?>
     <h1> Bem vindo ao Inventário do SMD!</h1>
     <h2>Perfil de administrador</h2>
-    <h2>Selecione um laboratório</h2>
-    <a href="info_laboratorios.php?lab=1&perf=adm"><button>Laboratório 1</button></a>
-    <a href="info_laboratorios.php?lab=2&perf=adm""><button>Laboratório 2</button></a>
-    <a href="info_laboratorios.php?lab=3&perf=adm""><button>Laboratório 3</button></a>
-    <a href="info_laboratorios.php?lab=4&perf=adm""><button>Laboratório 4</button></a>
-    <a href="info_laboratorios.php?lab=5&perf=adm""><button>Laboratório 5</button></a>
-    <a href="info_laboratorios.php?lab=6&perf=adm""><button>Laboratório 6</button></a>
-    <a href="modificar_inventario.php"><button> modificar </button></a>
-    <a href="logout.php"><button>Sair da conta</button></a>
-
+    <section>
+        <h2>Selecione um laboratório</h2>
+        <article>
+            <a href="info_laboratorios.php?lab=1&perf=adm"><button>Laboratório 1</button></a>
+            <a href="info_laboratorios.php?lab=2&perf=adm""><button>Laboratório 2</button></a>
+            <a href="info_laboratorios.php?lab=3&perf=adm""><button>Laboratório 3</button></a>
+            <a href="info_laboratorios.php?lab=4&perf=adm""><button>Laboratório 4</button></a>
+            <a href="info_laboratorios.php?lab=5&perf=adm""><button>Laboratório 5</button></a>
+            <a href="info_laboratorios.php?lab=6&perf=adm""><button>Laboratório 6</button></a>            
+        </article>
+        <br>
+        <div >
+            <a href="modificar_inventario.php"><button> modificar </button></a>
+            <a href="logout.php"><button>Sair da conta</button></a>
+        </div>
+    </section>
     <?php 
         } else {  
     ?>
@@ -69,8 +75,8 @@
     <?php
     
         include('conexao.php');
-        if(isset($_GET['busca']) && !empty($_GET['busca'])){
-            $pesquisa = $_GET['busca']; 
+        if(isset($_POST['busca']) && !empty($_POST['busca'])){
+            $pesquisa = $_POST['busca']; 
             $sql_code = $conexao->prepare("SELECT * 
                 from tb_modelos 
                 WHERE modelo LIKE '%$pesquisa%'");
@@ -79,11 +85,12 @@
         }
     ?>
 
-    <form method="GET" action="">
+    <form method="POST" action="">
         <input type="text" name="busca" placeholder="Pesquisar modelo">
         <button type="submit">Buscar</button>
     </form>    
-    
+    <?php
+         if(isset($_POST['busca']) && !empty($_POST['busca'])){ ?>
     <table border="1">
         <tr>
             <th>Modelo</th>
@@ -95,8 +102,7 @@
             <th>Lab6</th>
         </tr>
         <tr>
-        <?php 
-        if(isset($_GET['busca']) && !empty($_GET['busca'])){         
+        <?php                
             foreach ($resultado as $resultado){
                 echo ' <tr> 
                             <td>'.$resultado['modelo'].'</td>
@@ -108,14 +114,11 @@
                             <td>'.$resultado['lab6'].'</td>
                         </tr>';            
             }  
-        }  
+         
         ?>
-        </tr>
-        
-        <tr>
-            <td colspan ="7">O resultado da pesquisa vem aqui</td>
-        </tr>
+        </tr>         
     </table>
+    <?php } ?>
 
 </body>
 </html>

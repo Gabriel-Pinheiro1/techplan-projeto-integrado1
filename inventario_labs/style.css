@@ -10,9 +10,7 @@ body{
 }
 section{
     
-    border-style: solid;
-    border-color: black;
-    border: 20px;  
+      
     
     display: flex;
     flex-flow: column nowrap;

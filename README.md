@@ -18,7 +18,7 @@ ATENÇÃO
  --------------------------------------------
 DESCRIÇÃO
  --------------------------------------------
-<<<<<<< HEAD
+
  
 Esse é um projeto da equipe TechPlan juntamente com o suporte técnico do curso de Sistemas e Mídias Digitais. O intuito do projeto é criar um site, onde seja possível visualizar e modificar o inventário de hardware e software dos laboratórios do bloco, por exemplo visualizar e modificar número de máquinas em cada laboratório, modelo de máquinas, potência das máquinas presente nos laboratórios, softwares disponíveis em cada laboratório e etc.
 
@@ -26,13 +26,12 @@ Além disso o site também contará com um Help Desk para que os usuários possa
  
  
 
-=======
+
  
 Esse é um projeto da equipe TechPlan juntamente com o suporte técnico do curso de Sistemas e Mídias Digitais. O intuito do projeto é criar um site, onde seja possível visualizar e modificar o inventário de hardware e software dos laboratórios do bloco, por exemplo visualizar e modificar número de máquinas em cada laboratório, modelo de máquinas, potência das máquinas presente nos laboratórios, softwares disponíveis em cada laboratório e etc.
 
 Além disso o site também contará com um Help Desk para que os usuários possam reportar quaisquer problemas que ocorrerem com os laboratórios
  
  
->>>>>>> b1a0666c020ca830f4a11dc5633beaa14a9ad4ba
 
 

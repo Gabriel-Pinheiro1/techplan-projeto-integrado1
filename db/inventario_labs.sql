@@ -152,6 +152,66 @@ INSERT INTO `tb_modelos-bkp` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, 
 ('lenovo', 0, 25, 0, 34, 0, 0, 2),
 ('dell', 14, 91, 0, 23, 0, 0, 3);
 
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `tabela_softwares`
+--
+
+CREATE TABLE `tabela_softwares` (
+  `id` int(100) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `software` varchar(100) NOT NULL,
+  `categoria` varchar(100) NOT NULL,
+  `licenca` varchar(100) NOT NULL,
+  `versao` varchar(100)
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Extraindo dados da tabela `tb_modelos-bkp`
+--
+
+INSERT INTO `tabela_softwares` (`software`, `categoria`, `licenca`, `versao`) VALUES
+  ('Altium','Design','gratuita','2.2.1.6'),
+  ('Android Studio','IDE','gratuita','2021.2.1'),
+  ('Arduino','DEV','gratuita','1.8.19'),
+  ('Blender','Animação','gratuita','3.3'),
+  ('Gimp','Mídia','open source','2.10'),
+  ('Processing','IDE','gratuita','3.5.4'),
+  ('Visual Studio Code','Editor','gratuita','');
+
+
+
+--
+-- Estrutura da tabela `tabela_softwares`
+--
+
+CREATE TABLE `tb_info_softwares` (
+  `id` int(100) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `software` varchar(100) NOT NULL, 
+  `lab1` bit(1) NOT NULL,
+  `lab2` bit(1) NOT NULL,
+  `lab3` bit(1) NOT NULL,
+  `lab4` bit(1) NOT NULL,
+  `lab5` bit(1) NOT NULL,
+  `lab6` bit(1) NOT NULL
+  ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+
+--
+-- Extraindo dados da tabela `tb_modelos-bkp`
+--
+
+  INSERT INTO `tabela_softwares` (`software`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, `lab6`) VALUES
+    ('Altium',0,0,0,0,1,1),
+    ('Android Studio',1,0,0,1,0,0),
+    ('Arduino',0,1,0,0,0,1),
+    ('Blender',0,0,0,0,0,0),
+    ('Gimp',0,1,1,0,1,0),
+    ('Processing',1,1,0,1,0,1),
+    ('Visual Studio Code',0,0,0,0,0,0);
+
+
 --
 -- Índices para tabelas despejadas
 --

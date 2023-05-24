@@ -1,16 +1,4 @@
 
-<?php
-    require 'conexao.php';
-    
-    if(isset($_POST['modelo'])){
-        $sql = $conexao->prepare("INSERT INTO tb_modelos VALUES(?,?,?,?,?,?,?,?)");
-        $sql->execute(array($_POST['modelo'],$_POST['lab1'],$_POST['lab2'],$_POST['lab3'],$_POST['lab4'],$_POST['lab5'],$_POST['lab6'],''));
-        echo 'Modelo inserido com sucesso';
-        header("location:modificar_inventario.php");
-    }
-    
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -77,11 +65,20 @@
         include('conexao.php');
         if(isset($_POST['busca']) && !empty($_POST['busca'])){
             $pesquisa = $_POST['busca']; 
-            $sql_code = $conexao->prepare("SELECT * 
+
+            $sql_code_modelos = $conexao->prepare("SELECT * 
                 from tb_modelos 
                 WHERE modelo LIKE '%$pesquisa%'");
-            $sql_code->execute();
-            $resultado = $sql_code->fetchAll(PDO::FETCH_ASSOC);
+            $sql_code_modelos->execute();
+            $resultado_modelos = $sql_code_modelos->fetchAll(PDO::FETCH_ASSOC);
+
+            $sql_code_softwares = $conexao->prepare("SELECT *
+                from tabela_softwares
+                WHERE software LIKE '%$pesquisa%'");
+            $sql_code_softwares->execute();
+            $resultado_softwares = $sql_code_softwares->fetchAll(PDO::FETCH_ASSOC);
+
+
         }
     ?>
 
@@ -103,15 +100,43 @@
         </tr>
         <tr>
         <?php                
-            foreach ($resultado as $resultado){
+            foreach ($resultado_modelos as $resultado_modelos){
                 echo ' <tr> 
-                            <td>'.$resultado['modelo'].'</td>
-                            <td>'.$resultado['lab1'].'</td>
-                            <td>'.$resultado['lab2'].'</td>
-                            <td>'.$resultado['lab3'].'</td>
-                            <td>'.$resultado['lab4'].'</td>
-                            <td>'.$resultado['lab5'].'</td>
-                            <td>'.$resultado['lab6'].'</td>
+                            <td><a href="tabela_modelos.php">'.$resultado_modelos['modelo'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=1">'.$resultado_modelos['lab1'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=2">'.$resultado_modelos['lab2'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=3">'.$resultado_modelos['lab3'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=4">'.$resultado_modelos['lab4'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=5">'.$resultado_modelos['lab5'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=6">'.$resultado_modelos['lab6'].'</a></td>
+                        </tr>';            
+            } 
+            ?>
+            <tr>
+                <th>Software</th>
+                <th>Lab1</th>
+                <th>Lab2</th>
+                <th>Lab3</th>
+                <th>Lab4</th>
+                <th>Lab5</th>
+                <th>Lab6</th>
+            </tr> 
+            <?php
+            // foreach ($resultado_softwares as $software){
+            //     foreach($software as $valor){
+            //         if ($valor){ echo $valor;}
+            //     }           
+            // }
+            foreach ($resultado_softwares as $resultado_softwares){
+                
+                echo ' <tr> 
+                            <td><a href="">'.$resultado_softwares['software'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=1">'.$resultado_softwares['lab1'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=2">'.$resultado_softwares['lab2'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=3">'.$resultado_softwares['lab3'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=4">'.$resultado_softwares['lab4'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=5">'.$resultado_softwares['lab5'].'</a></td>
+                            <td><a href="info_laboratorios.php?lab=6">'.$resultado_softwares['lab6'].'</a></td>
                         </tr>';            
             }  
          

@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css" >
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">    
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.css" />
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <script src="includes/busca_dinamica.js"></script>
+
+
     <title>Início</title>
 </head>
 <body>
@@ -41,9 +49,10 @@
     
     <h1> Bem vindo ao Inventário do SMD!</h1>   
     
-    <section>
+    <section class= "d-flex justify-content-center ">
         <h2>Selecione um laboratório</h2>
-        <article>
+        <br>
+        <article class= "d-flex justify-content-center" >
             <a href="info_laboratorios.php?lab=1"><button>Laboratório 1</button></a>
             <a href="info_laboratorios.php?lab=2"><button>Laboratório 2</button></a>
             <a href="info_laboratorios.php?lab=3"><button>Laboratório 3</button></a>
@@ -58,92 +67,28 @@
     <?php 
         };
     ?>
-    <br><hr>
     
-    <?php
     
-        include('conexao.php');
-        if(isset($_POST['busca']) && !empty($_POST['busca'])){
-            $pesquisa = $_POST['busca']; 
+    
 
-            $sql_code_modelos = $conexao->prepare("SELECT * 
-                from tb_modelos 
-                WHERE modelo LIKE '%$pesquisa%'");
-            $sql_code_modelos->execute();
-            $resultado_modelos = $sql_code_modelos->fetchAll(PDO::FETCH_ASSOC);
+    <div class="row justify-content-center my-5 w-100 ">
+        <div class="col-6 text-center">
+            <form>
+                <div class="input-group mb-3">
+                    <input type="text" id="search" class="form-control form-control-lg" placeholder="Search Here" autocomplete="off">
+                    <button type="submit" id="submit" class="input-group-text btn-success px-4"><i class="fa fa-search"></i></button>
+                </div>
+            </form>
 
-            $sql_code_softwares = $conexao->prepare("SELECT *
-                from tabela_softwares
-                WHERE software LIKE '%$pesquisa%'");
-            $sql_code_softwares->execute();
-            $resultado_softwares = $sql_code_softwares->fetchAll(PDO::FETCH_ASSOC);
+            <div id="list"></div>
+        </div>
+    </div>
 
-
-        }
-    ?>
-
-    <form method="POST" action="">
-        <input type="text" name="busca" placeholder="Pesquisar modelo">
-        <button type="submit">Buscar</button>
-    </form>    
-    <?php
-         if(isset($_POST['busca']) && !empty($_POST['busca'])){ ?>
-    <table border="1">
-        <tr>
-            <th>Modelo</th>
-            <th>Lab1</th>
-            <th>Lab2</th>
-            <th>Lab3</th>
-            <th>Lab4</th>
-            <th>Lab5</th>
-            <th>Lab6</th>
-        </tr>
-        <tr>
-        <?php                
-            foreach ($resultado_modelos as $resultado_modelos){
-                echo ' <tr> 
-                            <td><a href="tabela_modelos.php">'.$resultado_modelos['modelo'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=1">'.$resultado_modelos['lab1'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=2">'.$resultado_modelos['lab2'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=3">'.$resultado_modelos['lab3'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=4">'.$resultado_modelos['lab4'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=5">'.$resultado_modelos['lab5'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=6">'.$resultado_modelos['lab6'].'</a></td>
-                        </tr>';            
-            } 
-            ?>
-            <tr>
-                <th>Software</th>
-                <th>Lab1</th>
-                <th>Lab2</th>
-                <th>Lab3</th>
-                <th>Lab4</th>
-                <th>Lab5</th>
-                <th>Lab6</th>
-            </tr> 
-            <?php
-            // foreach ($resultado_softwares as $software){
-            //     foreach($software as $valor){
-            //         if ($valor){ echo $valor;}
-            //     }           
-            // }
-            foreach ($resultado_softwares as $resultado_softwares){
-                
-                echo ' <tr> 
-                            <td><a href="">'.$resultado_softwares['software'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=1">'.$resultado_softwares['lab1'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=2">'.$resultado_softwares['lab2'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=3">'.$resultado_softwares['lab3'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=4">'.$resultado_softwares['lab4'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=5">'.$resultado_softwares['lab5'].'</a></td>
-                            <td><a href="info_laboratorios.php?lab=6">'.$resultado_softwares['lab6'].'</a></td>
-                        </tr>';            
-            }  
-         
-        ?>
-        </tr>         
-    </table>
-    <?php } ?>
+    <div class="row justify-content-center">
+        <div class="col-6">
+            <div id="card"> </div>
+        </div>
+    </div> 
 
 </body>
 </html>

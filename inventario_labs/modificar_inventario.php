@@ -1,4 +1,5 @@
 <?php
+    require 'login_seguranca.php';
     require 'conexao.php';
     $sql = $conexao->prepare("SELECT * FROM tb_modelos");
     $sql->execute();
@@ -43,7 +44,18 @@
 
     echo '<a href = "cadastro_inventario.php"><button>Cadastro</button></a>';
     
-
-
-
+    echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
 ?>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="tabela_comp.php"><button>Tabela de computadores</button></a>
+    <a href="tabela_modelos.php"><button>Tabela de modelos</button></a>
+</body>
+</html>

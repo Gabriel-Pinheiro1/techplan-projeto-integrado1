@@ -1,5 +1,6 @@
 <?php
     require 'conexao.php';
+    require 'login_seguranca.php';
 
    if(isset($_POST) && !empty($_POST)){
     $modelo = $_POST['modelo'];

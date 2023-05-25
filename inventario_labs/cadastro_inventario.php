@@ -1,5 +1,6 @@
 <?php
       require 'conexao.php';
+      require 'login_seguranca.php';
       if(isset($_POST['modelo'])){
         $sql = $conexao->prepare("INSERT INTO tb_modelos VALUES(?,?,?,?,?,?,?,?)");
         $sql->execute(array($_POST['modelo'],$_POST['lab1'],$_POST['lab2'],$_POST['lab3'],$_POST['lab4'],$_POST['lab5'],$_POST['lab6'],''));

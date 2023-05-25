@@ -8,7 +8,9 @@ ATENÇÃO
  
  Após isso, coloque o repositório baixado na pasta "htdpcs", dentro da pasta "xammp".
  
- Em seguida abra o aplicativo e clique em "start" nas opções Apache e MySQL e clique na opção "admin" em mysql.
+
+ Em seguida abra o aplicativo e dê "start" nas opções Apache e MySQL e clique na opção "admin" em mysql.
+
  
  Após isso, no PHPMyadmin, crie um banco de dados com o nome "inventario_labs" e importe o arquivo .sql nesse banco.
  

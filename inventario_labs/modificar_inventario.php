@@ -7,16 +7,16 @@
    
 
   // Tabela para mostrar o banco de dados dos equipamentos
-    echo '<table>';
+    echo '<table class = "table table-striped">';
     echo '
         <tr>
-            <td>Modelo</td>
-            <td>lab1</td>
-            <td>lab2</td>
-            <td>lab3</td>
-            <td>lab4</td>
-            <td>lab5</td>
-            <td>lab6</td>
+            <th scope="col">Modelo</th>
+            <th scope="col">lab1</th>
+            <th scope="col">lab2</th>
+            <th scope="col">lab3</th>
+            <th scope="col">lab4</th>
+            <th scope="col">lab5</th>
+            <th scope="col">lab6</th>
         </tr>
     ';
     foreach ($modelos as $key => $value) {
@@ -28,8 +28,8 @@
         echo '<td>'.$value['lab4'].'</td>';
         echo '<td>'.$value['lab5'].'</td>';
         echo '<td>'.$value['lab6'].'</td>';
-        echo '<td><a href = "atualizar_inventario.php?id='.$value['id'].'">atualizar</a></td>';
-        echo '<td><a href = "modificar_inventario.php?delete='.$value['modelo'].'">deletar</a></td>'; 
+        echo '<td scope="row"><a href = "atualizar_inventario.php?id='.$value['id'].'">atualizar</a></td>';
+        echo '<td scope="row"><a href = "modificar_inventario.php?delete='.$value['modelo'].'">deletar</a></td>'; 
         echo '</tr>';
         
     }
@@ -52,6 +52,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">   
     <title>Document</title>
 </head>
 <body>

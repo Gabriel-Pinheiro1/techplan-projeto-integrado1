@@ -25,7 +25,7 @@
                 exit;
             }
     ?>
-    <h1> Bem vindo ao Inventário do SMD!</h1>
+    <h1> Buscalab</h1>
     <h2>Perfil de administrador</h2>
     <section>
         <h2>Selecione um laboratório</h2>
@@ -47,7 +47,7 @@
         } else {  
     ?>
     
-    <h1> Bem vindo ao Inventário do SMD!</h1>   
+    <h1> Buscalab</h1>   
     
     <section class= "d-flex justify-content-center ">
         <h2>Selecione um laboratório</h2>

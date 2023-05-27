@@ -8,8 +8,9 @@
         $total = $qnt_total[0]['SUM(lab'.$id_lab.')'];
         $sql = $conexao->prepare("SELECT id,lab".$id_lab.", modelo FROM tb_modelos");
         $sql->execute();
-        $dados = $sql->fetchAll();  
-        echo "<h1> Olá você está no laboratório".$id_lab."</h1>";
+        $dados = $sql->fetchAll(); 
+
+        echo "<h1> Olá,  você está no laboratório ".$id_lab."</h1>";
         echo "<h2> Quantidade de máquinas: ".$total."</h2>";
         
             // verifica se o usuário está logado no perfil de amd
@@ -29,7 +30,11 @@
                                 echo '<a href = "info_laboratorios.php?perf=adm&lab='.$id_lab.'&del='.$dados[$key]['id'].'"><button type="submit">-</button></a>';
                                echo '<br>';
                             }            
-                        }  echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
+                        }                    
+                        //echo '<a href= "add_modelo.php?lab='.$id_lab.'&perf=adm"><button>Adicionar modelo</button></a>';
+                        echo '<a href="info_softwares.php?lab='.$id_lab.'&perf=adm"><button>Softwares</button></a>';
+                        echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
+                        
                         
                     }
         
@@ -43,8 +48,10 @@
                            echo '<br>';
                        }
                                    
-               } 
+               }
+               echo '<a href="info_softwares.php?lab='.$id_lab.'"><button>Softwares</button></a>';
                echo '<a href="index.php"><button>voltar ao ínicio</button></a>';
+              
             }
         
            
@@ -75,6 +82,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Document</title>
+    
 </head>
 <body>
 </body>

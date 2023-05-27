@@ -158,7 +158,7 @@ INSERT INTO `tb_modelos-bkp` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, 
 -- Estrutura da tabela `tabela_softwares`
 --
 
-CREATE TABLE `tabela_softwares` (
+CREATE TABLE `tb_info_softwares` (
   `id` int(100) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `software` varchar(100) NOT NULL,
   `categoria` varchar(100) NOT NULL,
@@ -171,7 +171,7 @@ CREATE TABLE `tabela_softwares` (
 -- Extraindo dados da tabela `tb_modelos-bkp`
 --
 
-INSERT INTO `tabela_softwares` (`software`, `categoria`, `licenca`, `versao`) VALUES
+INSERT INTO `tb_info_softwares` (`software`, `categoria`, `licenca`, `versao`) VALUES
   ('Altium','Design','gratuita','2.2.1.6'),
   ('Android Studio','IDE','gratuita','2021.2.1'),
   ('Arduino','DEV','gratuita','1.8.19'),
@@ -186,7 +186,7 @@ INSERT INTO `tabela_softwares` (`software`, `categoria`, `licenca`, `versao`) VA
 -- Estrutura da tabela `tabela_softwares`
 --
 
-CREATE TABLE `tb_info_softwares` (
+CREATE TABLE `tabela_softwares` (
   `id` int(100) NOT NULL PRIMARY KEY AUTO_INCREMENT,
   `software` varchar(100) NOT NULL, 
   `lab1` bit(1) NOT NULL,

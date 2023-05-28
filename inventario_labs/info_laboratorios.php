@@ -32,6 +32,7 @@
                             }            
                         }                    
                         //echo '<a href= "add_modelo.php?lab='.$id_lab.'&perf=adm"><button>Adicionar modelo</button></a>';
+                        echo '<a href="add_modelo.php?lab='.$id_lab.'&perf=adm"><button>Adicionar modelos</button></a>';
                         echo '<a href="info_softwares.php?lab='.$id_lab.'&perf=adm"><button>Softwares</button></a>';
                         echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
                         
@@ -81,7 +82,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Laboratórios</title>
     
 </head>
 <body>

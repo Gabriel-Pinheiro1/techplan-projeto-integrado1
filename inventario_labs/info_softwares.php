@@ -23,10 +23,12 @@
                     }
                     
                 }
+                echo '<div>';
                 echo '<a href="info_laboratorios.php?lab='.$id_lab.'&perf=adm"><button>Modelos</button></a>';
                 echo '<a href="add_softwares.php?lab='.$id_lab.'&perf=adm"><button>Adicionar softwares</button></a>';
+                echo '<a href="info_equipamentos.php?lab='.$id_lab.'&perf=adm"><button>equipamentos</button></a>';
                 echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
-               
+                echo '</div>';               
             }
 
     } else{
@@ -37,9 +39,11 @@
             echo '<br>';
         }
         
-    }
+    }   echo '<div>';
        echo '<a href="info_laboratorios.php?lab='.$id_lab.'"><button>Modelos</button></a>';
+       echo '<a href="info_equipamentos.php?lab='.$id_lab.'"><button>equipamentos</button></a>';
        echo '<a href="index.php"><button>voltar ao ínicio</button></a>';
+       echo '</div>';
     }
 
 ?>

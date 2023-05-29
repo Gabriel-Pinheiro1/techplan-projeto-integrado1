@@ -1,11 +1,17 @@
 <?php
       require 'conexao.php';
       require 'login_seguranca.php';
+      $id_lab = $_GET['lab'];
+      echo $id_lab;
       if(isset($_POST['modelo'])){
+        
+       
         $sql = $conexao->prepare("INSERT INTO tb_modelos VALUES(?,?,?,?,?,?,?,?)");
         $sql->execute(array($_POST['modelo'],$_POST['lab1'],$_POST['lab2'],$_POST['lab3'],$_POST['lab4'],$_POST['lab5'],$_POST['lab6'],''));
         echo 'Modelo inserido com sucesso';
-        header("location:modificar_inventario.php");
+        //header("location:index.php?perf=adm");
+        header("location: info_laboratorios.php?lab=".$id_lab."&perf=adm");
+        
       }
     
     ?>

@@ -7,9 +7,7 @@
     $query_modelo->execute();
     $dados_modelo = $query_modelo->fetchAll(PDO::FETCH_ASSOC);
     echo '<h1> Selecione um modelo</h1>';
-   // echo '<pre>';
-    //print_r($dados_soft);
-    echo '</pre>';
+
     foreach ($dados_modelo as $key => $value) {
         if($dados_modelo[$key]['lab'.$id_lab] == 0){
             $id_modelo = $dados_modelo[$key]['id'];   

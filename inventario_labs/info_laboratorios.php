@@ -26,15 +26,21 @@
                         
                                 echo 'Modelo: '.$dados[$key]['modelo']." / ";
                                 echo 'Quantidade: '.$dados[$key]['lab'.$id_lab];
+                                echo '<a href="mostra_detalhes.php?perf=adm&lab='.$id_lab.'&detalhe='.$dados[$key]['modelo'].'"&><button>Detalhes</button></a>';
+                                echo '<a href = "info_laboratorios.php?perf=adm&lab='.$id_lab.'&remove='.$dados[$key]['id'].'"><button type="submit">remover modelo</button></a>';
                                 echo '<a href = "info_laboratorios.php?perf=adm&lab='.$id_lab.'&add='.$dados[$key]['id'].'"><button type="submit">+</button></a>';
                                 echo '<a href = "info_laboratorios.php?perf=adm&lab='.$id_lab.'&del='.$dados[$key]['id'].'"><button type="submit">-</button></a>';
                                echo '<br>';
                             }            
                         }                    
                         //echo '<a href= "add_modelo.php?lab='.$id_lab.'&perf=adm"><button>Adicionar modelo</button></a>';
+                        echo '<div>';
                         echo '<a href="add_modelo.php?lab='.$id_lab.'&perf=adm"><button>Adicionar modelos</button></a>';
+                        echo '<a href = "cadastro_inventario.php?lab='.$id_lab.'"><button>Cadastrar novo modelo</button></a>';
                         echo '<a href="info_softwares.php?lab='.$id_lab.'&perf=adm"><button>Softwares</button></a>';
+                        echo '<a href="info_equipamentos.php?lab='.$id_lab.'&perf=adm"><button>equipamentos</button></a>';
                         echo '<a href="index.php?perf=adm"><button>voltar ao ínicio</button></a>';
+                        echo '</div>';
                         
                         
                     }
@@ -47,11 +53,15 @@
                            echo 'Modelo: '.$dados[$key]['modelo']." / ";
                            echo 'Quantidade: '.$dados[$key]['lab'.$id_lab];
                            echo '<br>';
+                           echo '<a href="mostra_detalhes.php?lab='.$id_lab.'&detalhe='.$dados[$key]['modelo'].'"&><button>Detalhes</button></a>';
                        }
                                    
                }
+               echo '<div>';
                echo '<a href="info_softwares.php?lab='.$id_lab.'"><button>Softwares</button></a>';
+               echo '<a href="info_equipamentos.php?lab='.$id_lab.'"><button>equipamentos</button></a>';
                echo '<a href="index.php"><button>voltar ao ínicio</button></a>';
+               echo '</div>';
               
             }
         
@@ -69,7 +79,13 @@
         $sql = $conexao->prepare("UPDATE tb_modelos SET lab".$id_lab."=lab".$id_lab."-1 WHERE id =".$id_add);
         $sql->execute();
         header("location:info_laboratorios.php?perf=adm&lab=".$id_lab);               
-    }           
+    } 
+    if(isset($_GET['remove']) && !empty($_GET['remove'])){
+        $id_remove = $_GET['remove'];
+        $sql = $conexao->prepare("UPDATE tb_modelos SET lab".$id_lab."=0 WHERE id =".$id_remove);
+        $sql->execute();
+        header("location:info_laboratorios.php?perf=adm&lab=".$id_lab);               
+    }                    
 
     
 ?>

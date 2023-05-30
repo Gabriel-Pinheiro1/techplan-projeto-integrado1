@@ -17,8 +17,9 @@
 </br>
 
 ---
-Instalação
----
+
+## Instalação
+
 
  Para instalar o projeto em seu computador, é necessário ter instalado o XAMMP : https://www.apachefriends.org/pt_br/index.html
  
@@ -33,7 +34,6 @@ Instalação
 </br>
 
  ## Tecnologias escolhidas
- ---
  </br>
 
 [![Tecnologias escolhidas](https://skills.thijs.gg/icons?i=php,html,css,js,tailwind&theme=dark)](https://skills.thijs.gg)

@@ -41,6 +41,7 @@
         <div >
             <a href="modificar_inventario.php"><button> modificar </button></a>
             <a href="logout.php"><button>Sair da conta</button></a>
+            <a href="Reportes/consulta.php"><button>Reportes</button></a>
         </div>
     </section>
     <?php 
@@ -62,6 +63,7 @@
         </article>
         <br>
         <a href="login.php"><button>login</button></a>
+        <a href="Reportes/reportar.php"><button> reportar problema </button></a>
     </section>
 
     <?php 

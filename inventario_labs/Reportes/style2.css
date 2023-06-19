@@ -1,0 +1,15 @@
+form{
+    display: flex; 
+    align-items: center;
+    flex-direction: column;
+    background-color: rgb(223, 220, 217);
+    width:fit-content;
+    margin: auto;
+    padding: 30px;
+    border-radius: 10px;
+}
+
+.adicionais{
+    display: none;
+
+}

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reportes</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+  <script src="app.js"></script>
+  <h1>Formulário de Relatório de Problemas</h1>
+  <form action="reportar.php" method="POST">
+    <label for="laboratorio">Escolha o laboratório</label>
+    <select name="lab" id="laboratorio">
+      <option hidden>Selecione</option>
+      <option value="1">Laboratório 01</option>
+      <option value="2">Laboratório 02</option>
+      <option value="3">Laboratório 03</option>
+      <option value="4">Laboratório 04</option>
+      <option value="5">Laboratório 05</option>
+      <option value="6">Laboratório 06</option>
+    </select>
+
+    <label for="categoria">Categoria:</label>
+    <select name="categ" id="categoria" onchange="atualizarOpcoes()">
+      <option hidden value="">Selecione</option>
+      <option value="Computador">Computador</option>
+      <option value="Equipamento">Equipamento</option>
+      <option value="Software">Software</option>
+      <option value="Outro">Outro</option>
+      
+    </select>
+
+    <label for="software">Qual o software:</label>
+    <input type="text" name="soft" class="adicionais" id="software" placeholder="Qual o software?">
+
+    <label for="tipoEquip">Equipamento:</label>
+    <select name="equip" class="adicionais" id="tipoEquip">
+      <option hidden value="">Selecione</option>
+      <option value="Projetor">Projetor</option>
+      <option value="Ar-condicionado">Ar-condicionado</option>
+      <option value="Caixa de som">Caixa de som</option>
+      
+    </select>
+
+    <label for="detalhesProblema">Detalhes do Problema:</label>
+    <select name="prob" class="adicionais" id="detalhesProblema"></select>
+
+    <label for="mesa">Mesa:</label>
+    <input name="mesa" type="number" class="adicionais" id="mesa" placeholder="Informe o número da mesa">
+
+    <div id="camposAdicionais"></div>
+
+    <label for="descricaoProblema">Descrição do Problema:</label>
+    <textarea name="outro" class="adicionais" id="descricaoProblema" rows="4"></textarea>
+
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>

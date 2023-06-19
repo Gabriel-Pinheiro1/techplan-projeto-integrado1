@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 19-Jun-2023 às 05:30
+-- Tempo de geração: 19-Jun-2023 às 15:30
 -- Versão do servidor: 10.4.24-MariaDB
 -- versão do PHP: 8.1.6
 
@@ -20,6 +20,41 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `inventario_labs`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `problemas`
+--
+
+CREATE TABLE `problemas` (
+  `id` int(11) NOT NULL,
+  `laboratório` text NOT NULL,
+  `categoria` text NOT NULL,
+  `software` text NOT NULL,
+  `equipamento` text NOT NULL,
+  `problema` text NOT NULL,
+  `outro_problema` text NOT NULL,
+  `mesa` int(3) NOT NULL,
+  `situação` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `problemas`
+--
+
+INSERT INTO `problemas` (`id`, `laboratório`, `categoria`, `software`, `equipamento`, `problema`, `outro_problema`, `mesa`, `situação`) VALUES
+(5, '2', 'Software', 'godot', '', 'Expirou a licença', '', 123, 1),
+(6, '2', 'Software', 'godot', '', 'Expirou a licença', '', 123, 1),
+(7, '4', 'Computador', '', '', 'Sem internet', '', 123, 1),
+(8, '4', 'Equipamento', '', 'Ar-condicionado', 'Pingando', '', 0, 1),
+(9, '6', 'Software', 'sla', '', 'Não foi instalado', '', 156, 1),
+(10, '5', 'Outro', '', '', 'Não foi instalado', 'aconteceu algum problema aqui', 0, 1),
+(11, '2', 'Outro', '', '', 'Não foi instalado', 'i', 0, 1),
+(12, '2', 'Outro', '', '', 'Não foi instalado', 'oi', 0, 1),
+(13, '3', 'Outro', '', '', '', 'sei n viu\r\n', 0, 1),
+(14, '', '', '', '', '', '', 0, 1),
+(15, '', '', '', '', '', '', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -244,6 +279,12 @@ INSERT INTO `tb_modelos-bkp` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, 
 --
 
 --
+-- Índices para tabela `problemas`
+--
+ALTER TABLE `problemas`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Índices para tabela `tabela_softwares`
 --
 ALTER TABLE `tabela_softwares`
@@ -294,6 +335,12 @@ ALTER TABLE `tb_modelos-bkp`
 --
 -- AUTO_INCREMENT de tabelas despejadas
 --
+
+--
+-- AUTO_INCREMENT de tabela `problemas`
+--
+ALTER TABLE `problemas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tabela_softwares`

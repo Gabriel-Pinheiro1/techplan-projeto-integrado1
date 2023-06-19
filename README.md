@@ -1,50 +1,41 @@
-# techplan-projeto-integrado1
- Projeto universitário da disciplina de Projeto Integrado 1 do curso de Sistemas e Mídias Digitais diurno na Universidade Federal do Ceará
+# Buscalab - por Techplan
+ Este é um projeto universitário, feito pela equipe Techplan, formada na disciplina de Projeto Integrado I.
+
+ ## O que é?
+ O Buscalab é um sistema que almeja atender aos requisitos de transparência do MEC, à respeito dos itens contidos nos inventários do curso de Sistemas e Mídias Digitais.
+
+ Além disso, também será uma plataforma de integração do usuário geral ao suporte técnico, visto que o sistema possibilitará que reclamações sobre equipamentos dos laboratórios sejam feitas diretamente a eles.
  
- ### Equipe: Techplan
- 
- ### Integrantes:
- - Pedro Enrico Damasceno
- - João Gabriel Pinheiro
- - Rafi Mota
+ ## Integrantes:
  - Jamile Sales
- - kauã Souza
- - Nathan Fonseca
- 
- 
- --------------------------------------------
-ATENÇÃO
- --------------------------------------------
- Para conseguir rodar esse projeto em seu computador será necessário baixar o XAMMP : https://www.apachefriends.org/pt_br/index.html
- 
- Após isso, coloque o repositório baixado na pasta "htdpcs", dentro da pasta "xammp".
- 
+ - João Gabriel
+ - Kauã Souza
+ - Natan Fonseca
+ - Pedro Enrico 
+ - Rafí Mota
 
- Em seguida abra o aplicativo e dê "start" nas opções Apache e MySQL e clique na opção "admin" em mysql.
+</br>
 
+---
+
+## Instalação
+
+
+ Para instalar o projeto em seu computador, é necessário ter instalado o XAMMP : https://www.apachefriends.org/pt_br/index.html
+ 
+ Após isso, insira o repositório baixado na pasta "htdpcs", dentro da pasta "xammp".
+ 
+ Em seguida abra o aplicativo e dê <strong>"start"</strong> nas opções Apache e MySQL e clique na opção "admin" em mysql.
  
  Após isso, no PHPMyadmin, crie um banco de dados com o nome "inventario_labs" e importe o arquivo .sql nesse banco.
  
  Por fim, vá no seu navegador e coloque o link "http://localhost/techplan-projeto-integrado1/inventario_labs/index.php"
- 
- 
- --------------------------------------------
-DESCRIÇÃO
- --------------------------------------------
 
- 
-Esse é um projeto da equipe TechPlan juntamente com o suporte técnico do curso de Sistemas e Mídias Digitais. O intuito do projeto é criar um site, onde seja possível visualizar e modificar o inventário de hardware e software dos laboratórios do bloco, por exemplo visualizar e modificar número de máquinas em cada laboratório, modelo de máquinas, potência das máquinas presente nos laboratórios, softwares disponíveis em cada laboratório e etc.
+</br>
 
-Além disso o site também contará com um Help Desk para que os usuários possam reportar quaisquer problemas que ocorrerem com os laboratórios
- 
- 
+ ## Tecnologias escolhidas
+ </br>
 
+[![Tecnologias escolhidas](https://skills.thijs.gg/icons?i=php,html,css,js,tailwind&theme=dark)](https://skills.thijs.gg)
 
- 
-Esse é um projeto da equipe TechPlan juntamente com o suporte técnico do curso de Sistemas e Mídias Digitais. O intuito do projeto é criar um site, onde seja possível visualizar e modificar o inventário de hardware e software dos laboratórios do bloco, por exemplo visualizar e modificar número de máquinas em cada laboratório, modelo de máquinas, potência das máquinas presente nos laboratórios, softwares disponíveis em cada laboratório e etc.
-
-Além disso o site também contará com um Help Desk para que os usuários possam reportar quaisquer problemas que ocorrerem com os laboratórios
- 
- 
-
-
+PHP, HTML5, CSS3, JavaScript e Tailwind CSS.

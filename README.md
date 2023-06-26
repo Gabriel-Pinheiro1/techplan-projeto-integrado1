@@ -23,7 +23,7 @@
 
  Para instalar o projeto em seu computador, é necessário ter instalado o XAMMP : https://www.apachefriends.org/pt_br/index.html
  
- Após isso, insira o repositório baixado na pasta "htdpcs", dentro da pasta "xammp".
+ Após isso, insira o repositório baixado na pasta "htdocs", dentro da pasta "xammp".
  
  Em seguida abra o aplicativo e dê <strong>"start"</strong> nas opções Apache e MySQL e clique na opção "admin" em mysql.
  

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1deb5ubuntu1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Tempo de geração: 19-Jun-2023 às 15:30
--- Versão do servidor: 10.4.24-MariaDB
--- versão do PHP: 8.1.6
+-- Host: localhost:3306
+-- Tempo de geração: 03-Jul-2023 às 13:56
+-- Versão do servidor: 8.0.33-0ubuntu0.22.04.2
+-- versão do PHP: 8.1.2-1ubuntu2.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,16 +28,16 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `problemas` (
-  `id` int(11) NOT NULL,
-  `laboratório` text NOT NULL,
-  `categoria` text NOT NULL,
-  `software` text NOT NULL,
-  `equipamento` text NOT NULL,
-  `problema` text NOT NULL,
-  `outro_problema` text NOT NULL,
-  `mesa` int(3) NOT NULL,
-  `situação` int(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `laboratório` text COLLATE utf8mb4_general_ci NOT NULL,
+  `categoria` text COLLATE utf8mb4_general_ci NOT NULL,
+  `software` text COLLATE utf8mb4_general_ci NOT NULL,
+  `equipamento` text COLLATE utf8mb4_general_ci NOT NULL,
+  `problema` text COLLATE utf8mb4_general_ci NOT NULL,
+  `outro_problema` text COLLATE utf8mb4_general_ci NOT NULL,
+  `mesa` int NOT NULL,
+  `situação` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `problemas`
@@ -63,28 +63,29 @@ INSERT INTO `problemas` (`id`, `laboratório`, `categoria`, `software`, `equipam
 --
 
 CREATE TABLE `tabela_softwares` (
-  `id` int(100) NOT NULL,
-  `software` varchar(100) NOT NULL,
+  `id` int NOT NULL,
+  `software` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
   `lab1` bit(1) NOT NULL,
   `lab2` bit(1) NOT NULL,
   `lab3` bit(1) NOT NULL,
   `lab4` bit(1) NOT NULL,
   `lab5` bit(1) NOT NULL,
-  `lab6` bit(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `lab6` bit(1) NOT NULL,
+  `imagem` varchar(100) COLLATE utf8mb4_general_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tabela_softwares`
 --
 
-INSERT INTO `tabela_softwares` (`id`, `software`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, `lab6`) VALUES
-(1, 'Altium', b'0', b'0', b'1', b'0', b'1', b'1'),
-(2, 'Android Studio', b'1', b'0', b'1', b'1', b'0', b'0'),
-(3, 'Arduino', b'0', b'1', b'1', b'0', b'0', b'1'),
-(4, 'Blender', b'1', b'0', b'1', b'0', b'0', b'0'),
-(5, 'Gimp', b'1', b'1', b'1', b'0', b'1', b'0'),
-(6, 'Processing', b'1', b'1', b'0', b'1', b'0', b'1'),
-(7, 'Visual Studio Code', b'1', b'1', b'0', b'0', b'0', b'0');
+INSERT INTO `tabela_softwares` (`id`, `software`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, `lab6`, `imagem`) VALUES
+(1, 'Altium', b'1', b'1', b'1', b'0', b'1', b'1', 'img_software/logo-altium.png'),
+(2, 'Android Studio', b'1', b'0', b'1', b'1', b'0', b'0', 'img_software/logo-android-studio.svg'),
+(3, 'Arduino', b'1', b'1', b'1', b'0', b'0', b'1', 'img_software/logo-arduino.png'),
+(4, 'Blender', b'1', b'0', b'1', b'0', b'0', b'0', 'img_software/logo-blender.svg'),
+(5, 'Gimp', b'1', b'1', b'1', b'0', b'1', b'0', 'img_software/logo-gimp.png'),
+(6, 'Processing', b'1', b'1', b'0', b'1', b'0', b'1', 'img_software/logo-processing.svg'),
+(17, 'vs code', b'1', b'1', b'1', b'1', b'1', b'1', 'img_software/logo-vscode.png');
 
 -- --------------------------------------------------------
 
@@ -93,10 +94,10 @@ INSERT INTO `tabela_softwares` (`id`, `software`, `lab1`, `lab2`, `lab3`, `lab4`
 --
 
 CREATE TABLE `tb_cadastro` (
-  `id` int(11) NOT NULL,
-  `email` varchar(250) DEFAULT NULL,
-  `senha` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `email` varchar(250) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `senha` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_cadastro`
@@ -113,15 +114,15 @@ INSERT INTO `tb_cadastro` (`id`, `email`, `senha`) VALUES
 --
 
 CREATE TABLE `tb_comp` (
-  `id_comp` int(11) NOT NULL,
-  `posicao` varchar(20) DEFAULT NULL,
-  `fila` varchar(10) DEFAULT NULL,
-  `patrimonio` varchar(100) DEFAULT NULL,
-  `modelo` varchar(100) DEFAULT NULL,
-  `ip` varchar(50) DEFAULT NULL,
-  `mesa_patrimonio` varchar(100) DEFAULT NULL,
-  `lab` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id_comp` int NOT NULL,
+  `posicao` varchar(20) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `fila` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `patrimonio` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `modelo` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `ip` varchar(50) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `mesa_patrimonio` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `lab` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_comp`
@@ -139,17 +140,17 @@ INSERT INTO `tb_comp` (`id_comp`, `posicao`, `fila`, `patrimonio`, `modelo`, `ip
 --
 
 CREATE TABLE `tb_equipamentos` (
-  `id` int(11) NOT NULL,
-  `modelo` varchar(100) NOT NULL,
-  `patrimonio` varchar(50) NOT NULL,
-  `fabricante` varchar(50) NOT NULL,
+  `id` int NOT NULL,
+  `modelo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `patrimonio` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `fabricante` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `lab1` tinyint(1) NOT NULL,
   `lab2` tinyint(1) NOT NULL,
   `lab3` tinyint(1) NOT NULL,
   `lab4` tinyint(1) NOT NULL,
   `lab5` tinyint(1) NOT NULL,
   `lab6` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_equipamentos`
@@ -166,22 +167,22 @@ INSERT INTO `tb_equipamentos` (`id`, `modelo`, `patrimonio`, `fabricante`, `lab1
 --
 
 CREATE TABLE `tb_info_modelos` (
-  `fabricante` varchar(30) NOT NULL,
-  `modelo` varchar(150) NOT NULL,
-  `processador` varchar(150) NOT NULL,
-  `cpu_mark` varchar(20) NOT NULL,
-  `mem_capacidade` varchar(10) NOT NULL,
-  `mem_tipo` varchar(50) NOT NULL,
-  `disco1_capacidade` varchar(20) NOT NULL,
-  `disco1_tipo` varchar(20) NOT NULL,
-  `disco1_modelo` varchar(50) NOT NULL,
-  `disco2_capacidade` varchar(20) NOT NULL,
-  `disco2_tipo` varchar(20) NOT NULL,
-  `disco2_modelo` varchar(50) NOT NULL,
-  `so_nome` varchar(50) NOT NULL,
-  `so_compilacao` varchar(50) NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `fabricante` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `modelo` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `processador` varchar(150) COLLATE utf8mb4_general_ci NOT NULL,
+  `cpu_mark` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `mem_capacidade` varchar(10) COLLATE utf8mb4_general_ci NOT NULL,
+  `mem_tipo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `disco1_capacidade` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `disco1_tipo` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `disco1_modelo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `disco2_capacidade` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `disco2_tipo` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `disco2_modelo` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `so_nome` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `so_compilacao` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_info_modelos`
@@ -199,12 +200,12 @@ INSERT INTO `tb_info_modelos` (`fabricante`, `modelo`, `processador`, `cpu_mark`
 --
 
 CREATE TABLE `tb_info_softwares` (
-  `id` int(100) NOT NULL,
-  `software` varchar(100) NOT NULL,
-  `categoria` varchar(100) NOT NULL,
-  `licenca` varchar(100) NOT NULL,
-  `versao` varchar(100) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `id` int NOT NULL,
+  `software` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `categoria` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `licenca` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `versao` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_info_softwares`
@@ -226,15 +227,15 @@ INSERT INTO `tb_info_softwares` (`id`, `software`, `categoria`, `licenca`, `vers
 --
 
 CREATE TABLE `tb_modelos` (
-  `modelo` varchar(100) NOT NULL,
-  `lab1` int(11) NOT NULL,
-  `lab2` int(11) NOT NULL,
-  `lab3` int(11) NOT NULL,
-  `lab4` int(11) NOT NULL,
-  `lab5` int(11) NOT NULL,
-  `lab6` int(11) NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `modelo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `lab1` int NOT NULL,
+  `lab2` int NOT NULL,
+  `lab3` int NOT NULL,
+  `lab4` int NOT NULL,
+  `lab5` int NOT NULL,
+  `lab6` int NOT NULL,
+  `id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_modelos`
@@ -255,15 +256,15 @@ INSERT INTO `tb_modelos` (`modelo`, `lab1`, `lab2`, `lab3`, `lab4`, `lab5`, `lab
 --
 
 CREATE TABLE `tb_modelos-bkp` (
-  `modelo` varchar(100) NOT NULL,
-  `lab1` int(11) NOT NULL,
-  `lab2` int(11) NOT NULL,
-  `lab3` int(11) NOT NULL,
-  `lab4` int(11) NOT NULL,
-  `lab5` int(11) NOT NULL,
-  `lab6` int(11) NOT NULL,
-  `id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+  `modelo` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `lab1` int NOT NULL,
+  `lab2` int NOT NULL,
+  `lab3` int NOT NULL,
+  `lab4` int NOT NULL,
+  `lab5` int NOT NULL,
+  `lab6` int NOT NULL,
+  `id` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Extraindo dados da tabela `tb_modelos-bkp`
@@ -340,55 +341,55 @@ ALTER TABLE `tb_modelos-bkp`
 -- AUTO_INCREMENT de tabela `problemas`
 --
 ALTER TABLE `problemas`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de tabela `tabela_softwares`
 --
 ALTER TABLE `tabela_softwares`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `tb_cadastro`
 --
 ALTER TABLE `tb_cadastro`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tb_comp`
 --
 ALTER TABLE `tb_comp`
-  MODIFY `id_comp` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id_comp` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `tb_equipamentos`
 --
 ALTER TABLE `tb_equipamentos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de tabela `tb_info_modelos`
 --
 ALTER TABLE `tb_info_modelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `tb_info_softwares`
 --
 ALTER TABLE `tb_info_softwares`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT de tabela `tb_modelos`
 --
 ALTER TABLE `tb_modelos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT de tabela `tb_modelos-bkp`
 --
 ALTER TABLE `tb_modelos-bkp`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
